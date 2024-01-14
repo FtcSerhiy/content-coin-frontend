@@ -10,3 +10,13 @@ body {
   margin: 0;
   background-color: #1D1D1D;
 }
+
+#root {
+  display: flex;
+  flex-direction: row;
+}
+
+main {
+  height: 100vh;
+  margin: auto;
+}

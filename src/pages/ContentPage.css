@@ -1,0 +1,45 @@
+main {
+    display: block;
+}
+
+.top {
+    display: flex;
+    background-color: #3A3A3A;
+    width: 60vw;
+    margin-top: 40px;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.top input {
+    background-color: transparent;
+    border: none;
+    margin-left: 15px;
+    font-size: 30px;
+    color: #C3C3C3;
+}
+
+.top input:focus {
+    border: none;
+    outline: none;
+}
+
+label.label input[type="file"] {
+    position: absolute;
+    top: -1000px;
+  }
+  .label {
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin: 5px;
+    background: #D9D9D9;
+    display: inline-block;
+  }
+
+.files {
+    background-color: #3A3A3A;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 15px;
+}
