@@ -1,0 +1,21 @@
+.file-preview {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 15px;
+    background-color: #616161;
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.file-preview span {
+    text-align: left;
+    color: #C3C3C3;
+    font-size: 20px;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}

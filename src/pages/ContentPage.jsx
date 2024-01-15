@@ -1,45 +1,36 @@
 import { FileUploader } from "react-drag-drop-files";
 import { useState } from "react";
 import './ContentPage.css'
+import { FileViewer } from "../components/FileViewer";
 
 export function Content() {
-    const [file, setFile] = useState([])
-    const [preview, setPreview] = useState()
-    const [fileType, setFileType] = useState('none')
+    const [allFiles, setAllFiles] = useState([])
+    const [render, setRender] = useState(false)
+    const [name, setName] = useState('')
     function handleOnChange(f) {
-        setFile(f);
-      
-        const file = new FileReader;
-      
-        file.onload = function() {
-          setPreview(file.result);
+        setAllFiles([...allFiles, f])
+    }
+    function publish(e) {
+        e.preventDefault()
+        const content = {
+            name: name,
+            files: allFiles
         }
-      
-        file.readAsDataURL(f)
-        setFileType(f.type)
+        console.log(content)
     }
 
     return <main>
-        <div className="content">
+        <form className="content">
             <div className="top">
                 <img src="https://ethereum.org/assets/svgs/eth-diamond-purple.svg" alt="Page icon" height="50px"/>
-                <input type="text" />
+                <input type="text" onChange={e => setName(e.target.value)} value={name} />
             </div>
             <div className="files">
                 <FileUploader handleChange={handleOnChange} name="file" />
-                <RenderFiles file={preview} ext={fileType}></RenderFiles>
+                <FileViewer files={allFiles} setFiles={setAllFiles}></FileViewer>
             </div>
-        </div>
-    </main>
-}
 
-function RenderFiles(props) {
-    switch (props.ext) {
-        case 'video':
-            return <video src={props.file}></video>
-        case 'image/svg+xml' || 'image/jpeg' || 'image/png':
-            return <img src={props.file.toString()} alt="Upload preview" />
-        case 'none':
-            return <p></p>
-    }
+            <button type="submit" className="publish-button" onClick={publish}>Publish</button>
+        </form>
+    </main>
 }
